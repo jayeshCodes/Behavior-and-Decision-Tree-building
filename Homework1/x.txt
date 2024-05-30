@@ -1,0 +1,358 @@
+            // if (cycleCount % 4 == 0)
+            // {
+            //     x = moveX(sprites[0]);
+            //     y = moveY(sprites[1]);
+            //     negx = moveNegX(sprites[2]);
+            //     negy = moveNegY(sprites[3]);
+            //     if (!x)
+            //     {
+            //         cycleCount++;
+            //         if (cycleCount < 4)
+            //             sprites[4 - cycleCount].spawn = true;
+            //         y = true;
+            //     }
+            // }
+            // if (cycleCount % 4 == 1)
+            // {
+            //     x = moveX(sprites[3]);
+            //     y = moveY(sprites[0]);
+            //     negx = moveNegX(sprites[1]);
+            //     negy = moveNegY(sprites[2]);
+            //     if (!y)
+            //     {
+            //         cycleCount++;
+            //         if (cycleCount < 4)
+            //             sprites[4 - cycleCount].spawn = true;
+            //         negx = true;
+            //     }
+            // }
+            // if (cycleCount % 4 == 2)
+            // {
+            //     x = moveX(sprites[2]);
+            //     y = moveY(sprites[3]);
+            //     negx = moveNegX(sprites[0]);
+            //     negy = moveNegY(sprites[1]);
+            //     if (!negx)
+            //     {
+            //         cycleCount++;
+            //         if (cycleCount < 4)
+            //             sprites[4 - cycleCount].spawn = true;
+            //         negy = true;
+            //     }
+            // }
+            // if (cycleCount % 4 == 3)
+            // {
+            //     x = moveX(sprites[1]);
+            //     y = moveY(sprites[2]);
+            //     negx = moveNegX(sprites[3]);
+            //     negy = moveNegY(sprites[0]);
+            //     if (!negx)
+            //     {
+            //         cycleCount++;
+            //         if (cycleCount >= 4 && cycleCount < 8)
+            //         {
+            //             std::cout << cycleCount - 4;
+            //             sprites[cycleCount - 4].cycleComplete = true;
+            //         }
+            //         negy = true;
+            //     }
+            // }
+            // moveX(sprites[spriteIndex - 1]);
+            // if (sprites[spriteIndex - 1].sprite.getPosition().x >= window.getSize().x - 40 && spriteIndex < 3)
+            // {
+            //     sprites[spriteIndex].spawn = true;
+            //     spriteIndex++;
+            // }
+
+
+
+
+
+
+
+        if (frame % 10 == 0)
+        {
+            if (cycleCount == 0)
+            {
+                moveX(sprites[0]);
+                if (sprites[0].sprite.getPosition().x >= window.getSize().x - 40)
+                {
+                    cycleCount++;
+                    sprites[1].spawn = true;
+                }
+            }
+            if (cycleCount == 1)
+            {
+                moveX(sprites[1]);
+                if (sprites[1].sprite.getPosition().x >= window.getSize().x - 40)
+                {
+                    cycleCount++;
+                    sprites[2].spawn = true;
+                }
+            }
+            if (cycleCount == 2)
+            {
+                moveX(sprites[2]);
+                if (sprites[2].sprite.getPosition().x >= window.getSize().x - 40)
+                {
+                    cycleCount++;
+                    sprites[3].spawn = true;
+                }
+            }
+            if (cycleCount == 3)
+            {
+                moveX(sprites[3]);
+            }
+            if (sprites[3].sprite.getPosition().x >= window.getSize().x - 40)
+            {
+                cycleCount = 0; // Reset cycleCount after completing a cycle
+            }
+        }
+
+
+
+
+homework1.cpp
+#include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
+#include <iostream>
+
+float xVel = 100.0f, yVel = (480.0f / 640.0f) * 100.0f;
+sf::RenderWindow window(sf::VideoMode(640, 480), "Homework1");
+
+class CustomSprite
+{
+public:
+    sf::Sprite sprite;
+    bool cycleComplete;
+    bool spawn;
+    bool xcomplete;
+    bool ycomplete;
+    bool negxcomplete;
+    bool negycomplete;
+};
+
+bool moveX(CustomSprite &sprite)
+{
+    if (sprite.sprite.getPosition().x < window.getSize().x - 40)
+        sprite.sprite.setPosition(sprite.sprite.getPosition().x + xVel, sprite.sprite.getPosition().y);
+
+    if (sprite.sprite.getPosition().x >= window.getSize().x - 40)
+    {
+        sprite.sprite.setRotation(90.f);
+        return false;
+    }
+    return true;
+}
+
+bool moveY(CustomSprite &sprite)
+{
+    if (sprite.sprite.getPosition().y < window.getSize().y - 75)
+        sprite.sprite.setPosition(sprite.sprite.getPosition().x, sprite.sprite.getPosition().y + yVel);
+
+    if (sprite.sprite.getPosition().y >= window.getSize().y - 75)
+    {
+        sprite.sprite.setRotation(180.f);
+        return false;
+    }
+    return true;
+}
+
+bool moveNegX(CustomSprite &sprite)
+{
+    if (sprite.sprite.getPosition().x > 0)
+        sprite.sprite.setPosition(sprite.sprite.getPosition().x - xVel, sprite.sprite.getPosition().y);
+
+    if (sprite.sprite.getPosition().x <= 0)
+    {
+        sprite.sprite.setRotation(270.f);
+        return false;
+    }
+    return true;
+}
+
+bool moveNegY(CustomSprite &sprite)
+{
+    if (sprite.sprite.getPosition().y > 0 + 50)
+        sprite.sprite.setPosition(sprite.sprite.getPosition().x, sprite.sprite.getPosition().y - yVel);
+
+    if (sprite.sprite.getPosition().y <= 0 + 50)
+    {
+        sprite.sprite.setRotation(0.f);
+        return false;
+    }
+    return true;
+}
+
+int main()
+{
+
+    window.setFramerateLimit(60);
+    sf::Texture texture;
+
+    if (!texture.loadFromFile("boid.png"))
+    {
+        // error handling
+        std::cout << "texture not found";
+        return -1;
+    }
+    CustomSprite sprites[4];
+
+    for (CustomSprite &sprite : sprites)
+    {
+        sprite.sprite.setTexture(texture);
+        sprite.sprite.setPosition(0.0f, 0.0f);
+        sprite.sprite.setScale(0.1f, 0.1f);
+        sprite.cycleComplete = false;
+    }
+
+    int moveIndices[4];
+
+    for (int i = 0; i < 4; i++)
+    {
+        moveIndices[i] = i;
+    }
+
+    int frame = 0, currentSpriteIndex = 0, rotate = 0;
+
+    bool movingx = true, movingy = false, movingnegx = false, movingnegy = false;
+
+    while (window.isOpen())
+    {
+
+        sf::Event ev;
+        while (window.pollEvent(ev))
+        {
+            if (ev.type == sf::Event::Closed)
+                window.close();
+        }
+
+        if (frame % 10 == 0)
+        {
+            if (currentSpriteIndex % 4 == 0)
+            {
+                if (currentSpriteIndex < 4)
+                {
+                    movingx = moveX(sprites[currentSpriteIndex % 4]);
+                }
+                else
+                {
+                    movingx = moveX(sprites[0]);
+                    movingy = moveY(sprites[1]);
+                    movingnegx = moveNegX(sprites[2]);
+                    movingnegy = moveNegY(sprites[3]);
+                }
+                if (!movingx)
+                {
+                    movingy = true;
+                    currentSpriteIndex++;
+                }
+            }
+
+            if (currentSpriteIndex % 4 == 1)
+            {
+                if (currentSpriteIndex < 4)
+                {
+                    movingx = moveX(sprites[(currentSpriteIndex % 4)]);
+                    movingy = moveY(sprites[(currentSpriteIndex % 4) - 1]);
+                }
+                else
+                {
+                    movingx = moveX(sprites[3]);
+                    movingy = moveY(sprites[0]);
+                    movingnegx = moveNegX(sprites[1]);
+                    movingnegy = moveNegY(sprites[2]);
+                }
+                if (!movingy)
+                {
+                    movingnegx = true;
+                    currentSpriteIndex++;
+                }
+            }
+
+            if (currentSpriteIndex % 4 == 2)
+            {
+                if (currentSpriteIndex < 4)
+                {
+                    movingx = moveX(sprites[(currentSpriteIndex % 4)]);
+                    movingy = moveY(sprites[(currentSpriteIndex % 4) - 1]);
+                    movingnegx = moveNegX(sprites[(currentSpriteIndex % 4) - 2]);
+                }
+                else
+                {
+                    movingx = moveX(sprites[2]);
+                    movingy = moveY(sprites[3]);
+                    movingnegx = moveNegX(sprites[0]);
+                    movingnegy = moveNegY(sprites[1]);
+                }
+
+                if (!movingnegx)
+                {
+                    movingnegy = true;
+                    currentSpriteIndex++;
+                }
+            }
+
+            if (currentSpriteIndex % 4 == 3)
+            {
+                if (currentSpriteIndex < 4)
+                {
+                    movingx = moveX(sprites[(currentSpriteIndex % 4)]);
+                    movingy = moveY(sprites[(currentSpriteIndex % 4) - 1]);
+                    movingnegx = moveNegX(sprites[(currentSpriteIndex % 4) - 2]);
+                    movingnegy = moveNegY(sprites[(currentSpriteIndex % 4) - 3]);
+                }
+                else
+                {
+                    movingx = moveX(sprites[1]);
+                    movingy = moveY(sprites[2]);
+                    movingnegx = moveNegX(sprites[3]);
+                    movingnegy = moveNegY(sprites[0]);
+                }
+
+                if (!movingnegy)
+                {
+                    movingx = true;
+                    currentSpriteIndex++;
+                    frame=0;
+                }
+            }
+        }
+
+        window.clear(sf::Color::White);
+        if (currentSpriteIndex < 4)
+        {
+
+            for (int i = 0; i <= currentSpriteIndex; i++)
+            {
+                if (!sprites[i].cycleComplete)
+                    window.draw(sprites[i].sprite);
+            }
+        }
+
+        else
+        {
+            if (!sprites[0].cycleComplete)
+            {
+                window.draw(sprites[0].sprite);
+            }
+            if (!sprites[1].cycleComplete)
+            {
+                window.draw(sprites[1].sprite);
+            }
+            if (!sprites[2].cycleComplete)
+            {
+                window.draw(sprites[2].sprite);
+            }
+            if (!sprites[3].cycleComplete)
+            {
+                window.draw(sprites[3].sprite);
+            }
+        }
+        window.display();
+
+        frame++;
+    }
+
+    return 0;
+}

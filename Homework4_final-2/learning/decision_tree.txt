@@ -1,0 +1,43 @@
+Attribute: 0
+Value 0.0:
+  Attribute: 3
+  Value 0.0:
+    Attribute: 2
+    Value 0.0:
+      Attribute: 1
+      Value 0.0:
+        Class: 1
+    Value 1.0:
+      Attribute: 1
+      Value 0.0:
+        Class: 1
+      Value 3.0:
+        Class: 4
+  Value 1.0:
+    Attribute: 2
+    Value 0.0:
+      Attribute: 1
+      Value 0.0:
+        Class: 1
+    Value 1.0:
+      Attribute: 1
+      Value 0.0:
+        Class: 1
+Value 1.0:
+  Attribute: 1
+  Value 0.0:
+    Class: 0
+  Value 2.0:
+    Class: 4
+  Value 3.0:
+    Attribute: 2
+    Value 0.0:
+      Class: 5
+    Value 1.0:
+      Class: 4
+Value 2.0:
+  Attribute: 2
+  Value 0.0:
+    Class: 5
+  Value 1.0:
+    Class: 4

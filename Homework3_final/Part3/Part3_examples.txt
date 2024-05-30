@@ -1,0 +1,45 @@
+Source: Yerwada, Destination: Wagholi
+A* with Euclidean distance: (underestimating)
+Path found: Yerwada Kalyani Ngr_Rd Kharadi Wagholi 
+Cost : 5
+A* algorithm took 125 microseconds.
+
+A* with time: (overestimating, since timetaken + actual distance > total distance required (not sure about this))
+Path found: Yerwada Kalyani Wdsheri Kharadi Wagholi 
+Cost : 5
+A* algorithm with time heuristic took 79 microseconds.
+
+A* with Euclidean distance squared: (underestimating, because the distance calculated by running euclidean distance is in 10^-2 order of magnitude and squaring this would make it even smaller)
+Path found: Yerwada Kalyani Ngr_Rd Kharadi Wagholi 
+Cost : 5
+A* algorithm took 126 microseconds.
+
+A* with (1000*(manhattan))^4: (overestimating, since (1000*(manhattan))^4 is much larger than the actual distance)
+Path found: Yerwada Vishrant Tingre Viman Wagholi 
+Cost : 15
+A* algorithm took 62 microseconds.
+
+The output paths in each case reflect how the heuristic influences the search algorithm's decision-making process. Heuristics that underestimate or overestimate the actual distance can lead to suboptimal or inefficient paths. In the case of an overestimating heuristic like the one using (1000*(Manhattan))^4, the algorithm may choose longer paths to avoid overestimating the actual distance. Conversely, underestimating heuristics like the Euclidean distance tend to produce shorter but potentially suboptimal paths. The optimal heuristic strikes a balance between underestimating and overestimating the actual distance to guide the algorithm efficiently toward the goal.
+
+Source: Wdsheri, Destination: Kothrud
+A* with Euclidean distance: 
+Path found: Wdsheri Kalyani Yerwada Sangam Old_Pune Kothrud 
+Cost : 12
+A* algorithm took 189 microseconds.
+
+A* with time: 
+Path found: Wdsheri Kalyani Yerwada Sangam Deccan Kothrud 
+Cost : 12
+A* algorithm with time heuristic took 106 microseconds.
+
+A* with Euclidean distance squared: 
+Path found: Wdsheri Kalyani Yerwada Sangam Old_Pune Kothrud 
+Cost : 12
+A* algorithm took 193 microseconds.
+
+A* with manhattan^4: 
+Path found: Wdsheri Mundhwa KP Camp Railway Deccan Kothrud 
+Cost : 16
+A* algorithm took 87 microseconds.
+
+In summary, the choice of heuristic significantly affects the paths found by the A* algorithm. Underestimating heuristics tend to produce shorter but potentially suboptimal paths, while overestimating heuristics may lead to longer but potentially more optimal paths. The optimal heuristic strikes a balance between underestimating and overestimating the actual distance to guide the algorithm efficiently toward the goal.

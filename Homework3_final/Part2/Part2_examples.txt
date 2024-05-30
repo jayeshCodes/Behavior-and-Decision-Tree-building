@@ -1,0 +1,96 @@
+Example 1:
+Source: Airport, Destination: Railway
+Fringe: Airport(0) 
+Fringe: Viman(1) Tingre(2) Kalyani(3) Cantt(7) 
+Fringe: Ngr_Rd(2) Tingre(2) Kalyani(3) Cantt(7) Wagholi(9) 
+Fringe: Tingre(2) Kalyani(3) Kharadi(3) Wdsheri(3) Cantt(7) Wagholi(8) Wagholi(9) 
+Fringe: Kalyani(3) Kharadi(3) Wdsheri(3) Vishrant(4) Cantt(7) Wagholi(8) Wagholi(9) 
+Fringe: Kharadi(3) Wdsheri(3) Vishrant(4) Yerwada(4) KP(6) Cantt(7) Bund(8) Wagholi(8) Wagholi(9) 
+Fringe: Wdsheri(3) Vishrant(4) Yerwada(4) Wagholi(5) KP(6) Mundhwa(6) Cantt(7) Bund(8) Wagholi(8) Wagholi(9) 
+Fringe: Vishrant(4) Yerwada(4) Mundhwa(5) Wagholi(5) KP(6) Mundhwa(6) Cantt(7) Bund(8) Wagholi(8) Wagholi(9) 
+Fringe: Yerwada(4) Mundhwa(5) Wagholi(5) KP(6) Mundhwa(6) Sangam(6) Cantt(7) Bund(8) Wagholi(8) Wagholi(9) 
+Fringe: Mundhwa(5) Wagholi(5) KP(6) Mundhwa(6) Sangam(6) Cantt(7) Bund(8) Wagholi(8) Wagholi(9) 
+Fringe: Wagholi(5) KP(6) Mundhwa(6) Sangam(6) Cantt(7) Bund(8) Magar(8) Wagholi(8) Wagholi(9) 
+Fringe: KP(6) Mundhwa(6) Sangam(6) Cantt(7) Bund(8) Magar(8) Wagholi(8) Wagholi(9) 
+Fringe: Mundhwa(6) Sangam(6) Cantt(7) Bund(8) Magar(8) Wagholi(8) Camp(9) Wagholi(9) 
+Fringe: Sangam(6) Cantt(7) Bund(8) Magar(8) Wagholi(8) Camp(9) Wagholi(9) 
+Fringe: Cantt(7) Bund(8) Magar(8) Railway(8) Wagholi(8) Camp(9) Wagholi(9) Deccan(11) Old_Pune(11) 
+Fringe: Bund(8) Magar(8) Railway(8) Wagholi(8) Camp(9) Wagholi(9) Deccan(11) Old_Pune(11) 
+Fringe: Magar(8) Railway(8) Wagholi(8) Camp(9) Wagholi(9) Deccan(11) Old_Pune(11) 
+Fringe: Railway(8) Wagholi(8) Camp(9) Wagholi(9) Deccan(11) Old_Pune(11) 
+Shortest path found using Dijkstra's algorithm: Airport Tingre Vishrant Sangam Railway 
+Dijkstra's algorithm took 290 microseconds.
+
+Fringe: Airport(0) 
+Fringe: Viman(1.06714) Tingre(2.06429) Kalyani(3.0442) Cantt(7.08623) 
+Fringe: Tingre(2.06429) Ngr_Rd(2.06634) Kalyani(3.0442) Cantt(7.08623) Wagholi(9.12708) 
+Fringe: Ngr_Rd(2.06634) Kalyani(3.0442) Vishrant(4.05227) Cantt(7.08623) Wagholi(9.12708) 
+Fringe: Kalyani(3.0442) Wdsheri(3.06261) Kharadi(3.08971) Vishrant(4.05227) Cantt(7.08623) Wagholi(8.12708) Wagholi(9.12708) 
+Fringe: Wdsheri(3.06261) Kharadi(3.08971) Yerwada(4.0442) Vishrant(4.05227) KP(6.03856) Cantt(7.08623) Bund(8.02609) Wagholi(8.12708) Wagholi(9.12708) 
+Fringe: Kharadi(3.08971) Yerwada(4.0442) Vishrant(4.05227) Mundhwa(5.04816) KP(6.03856) Cantt(7.08623) Bund(8.02609) Wagholi(8.12708) Wagholi(9.12708) 
+Fringe: Yerwada(4.0442) Vishrant(4.05227) Mundhwa(5.04816) Wagholi(5.12708) KP(6.03856) Cantt(7.08623) Bund(8.02609) Wagholi(8.12708) Wagholi(9.12708) 
+Fringe: Vishrant(4.05227) Mundhwa(5.04816) Wagholi(5.12708) Sangam(6.02053) KP(6.03856) Cantt(7.08623) Bund(8.02609) Wagholi(8.12708) Wagholi(9.12708) 
+Fringe: Mundhwa(5.04816) Wagholi(5.12708) Sangam(6.02053) KP(6.03856) Cantt(7.08623) Bund(8.02609) Wagholi(8.12708) Wagholi(9.12708) 
+Fringe: Wagholi(5.12708) Sangam(6.02053) KP(6.03856) Cantt(7.08623) Bund(8.02609) Magar(8.06088) Wagholi(8.12708) Wagholi(9.12708) 
+Fringe: Sangam(6.02053) KP(6.03856) Cantt(7.08623) Bund(8.02609) Magar(8.06088) Wagholi(8.12708) Wagholi(9.12708) 
+Fringe: KP(6.03856) Cantt(7.08623) Railway(8) Bund(8.02609) Magar(8.06088) Wagholi(8.12708) Wagholi(9.12708) Deccan(11.0246) Old_Pune(11.0339) 
+Fringe: Cantt(7.08623) Railway(8) Bund(8.02609) Magar(8.06088) Wagholi(8.12708) Camp(9.02205) Wagholi(9.12708) Deccan(11.0246) Old_Pune(11.0339) 
+Fringe: Railway(8) Bund(8.02609) Magar(8.06088) Wagholi(8.12708) Camp(9.02205) Wagholi(9.12708) Deccan(11.0246) Old_Pune(11.0339) 
+Path found: Airport Kalyani Yerwada Sangam Railway 
+A* algorithm took 525 microseconds.
+
+
+Example 2:
+Source: Camp, Destination: Ngr_Rd
+Fringe: Camp(0) 
+Fringe: Bund(2) KP(3) Railway(3) Kondhwa(4) Railway(6) Undri(6) 
+Fringe: KP(3) Railway(3) Kondhwa(4) Railway(6) Undri(6) Kalyani(7) 
+Fringe: Railway(3) Kondhwa(4) Mundhwa(4) Kalyani(6) Magar(6) Railway(6) Undri(6) Kalyani(7) 
+Fringe: Kondhwa(4) Mundhwa(4) Sangam(5) Deccan(6) Kalyani(6) Magar(6) Railway(6) Undri(6) Kalyani(7) 
+Fringe: Mundhwa(4) Sangam(5) Deccan(6) Kalyani(6) Magar(6) Railway(6) Undri(6) Kalyani(7) 
+Fringe: Sangam(5) Deccan(6) Kalyani(6) Magar(6) Railway(6) Undri(6) Wdsheri(6) Kalyani(7) Kharadi(7) 
+Fringe: Deccan(6) Kalyani(6) Magar(6) Railway(6) Undri(6) Wdsheri(6) Kalyani(7) Kharadi(7) Vishrant(7) Yerwada(7) Old_Pune(10) 
+Fringe: Kalyani(6) Magar(6) Railway(6) Undri(6) Wdsheri(6) Kalyani(7) Kharadi(7) Vishrant(7) Yerwada(7) Old_Pune(9) Kothrud(10) Old_Pune(10) 
+Fringe: Magar(6) Railway(6) Undri(6) Wdsheri(6) Kalyani(7) Kharadi(7) Ngr_Rd(7) Vishrant(7) Yerwada(7) Viman(8) Airport(9) Old_Pune(9) Kothrud(10) Old_Pune(10) 
+Fringe: Railway(6) Undri(6) Wdsheri(6) Kalyani(7) Kharadi(7) Ngr_Rd(7) Vishrant(7) Yerwada(7) Viman(8) Airport(9) Old_Pune(9) Kothrud(10) Old_Pune(10) 
+Fringe: Undri(6) Wdsheri(6) Kalyani(7) Kharadi(7) Ngr_Rd(7) Vishrant(7) Yerwada(7) Viman(8) Airport(9) Old_Pune(9) Kothrud(10) Old_Pune(10) 
+Fringe: Wdsheri(6) Kalyani(7) Kharadi(7) Ngr_Rd(7) Vishrant(7) Yerwada(7) Viman(8) Airport(9) Old_Pune(9) Kothrud(10) Old_Pune(10) 
+Fringe: Kalyani(7) Kharadi(7) Ngr_Rd(7) Vishrant(7) Yerwada(7) Viman(8) Airport(9) Old_Pune(9) Kothrud(10) Old_Pune(10) 
+Fringe: Kharadi(7) Ngr_Rd(7) Vishrant(7) Yerwada(7) Viman(8) Airport(9) Old_Pune(9) Kothrud(10) Old_Pune(10) 
+Fringe: Ngr_Rd(7) Vishrant(7) Yerwada(7) Viman(8) Airport(9) Old_Pune(9) Wagholi(9) Kothrud(10) Old_Pune(10) 
+Shortest path found using Dijkstra's algorithm: Camp KP Kalyani Ngr_Rd 
+Dijkstra's algorithm took 241 microseconds.
+
+Fringe: Camp(0) 
+Fringe: Bund(2.04106) KP(3.02907) Railway(3.06634) Kondhwa(4.09688) Railway(6.06634) Undri(6.10783) 
+Fringe: KP(3.02907) Railway(3.06634) Kondhwa(4.09688) Railway(6.06634) Undri(6.10783) Kalyani(7.02215) 
+Fringe: Railway(3.06634) Mundhwa(4.027) Kondhwa(4.09688) Kalyani(6.02215) Magar(6.04665) Railway(6.06634) Undri(6.10783) Kalyani(7.02215) 
+Fringe: Mundhwa(4.027) Kondhwa(4.09688) Sangam(5.05144) Kalyani(6.02215) Magar(6.04665) Railway(6.06634) Deccan(6.08957) Undri(6.10783) Kalyani(7.02215) 
+Fringe: Kondhwa(4.09688) Sangam(5.05144) Wdsheri(6.01011) Kalyani(6.02215) Magar(6.04665) Railway(6.06634) Deccan(6.08957) Undri(6.10783) Kalyani(7.02215) Kharadi(7.03308) 
+Fringe: Sangam(5.05144) Wdsheri(6.01011) Kalyani(6.02215) Magar(6.04665) Railway(6.06634) Deccan(6.08957) Undri(6.10783) Kalyani(7.02215) Kharadi(7.03308) 
+Fringe: Wdsheri(6.01011) Kalyani(6.02215) Magar(6.04665) Railway(6.06634) Deccan(6.08957) Undri(6.10783) Kalyani(7.02215) Yerwada(7.02215) Kharadi(7.03308) Vishrant(7.0424) Old_Pune(10.0479) 
+Fringe: Kalyani(6.02215) Magar(6.04665) Railway(6.06634) Deccan(6.08957) Undri(6.10783) Ngr_Rd(7) Kalyani(7.02215) Yerwada(7.02215) Kharadi(7.03308) Vishrant(7.0424) Old_Pune(10.0479) 
+Fringe: Magar(6.04665) Railway(6.06634) Deccan(6.08957) Undri(6.10783) Ngr_Rd(7) Kalyani(7.02215) Yerwada(7.02215) Kharadi(7.03308) Vishrant(7.0424) Viman(8.00813) Airport(9.02079) Old_Pune(10.0479) 
+Fringe: Railway(6.06634) Deccan(6.08957) Undri(6.10783) Ngr_Rd(7) Kalyani(7.02215) Yerwada(7.02215) Kharadi(7.03308) Vishrant(7.0424) Viman(8.00813) Airport(9.02079) Old_Pune(10.0479) 
+Fringe: Deccan(6.08957) Undri(6.10783) Ngr_Rd(7) Kalyani(7.02215) Yerwada(7.02215) Kharadi(7.03308) Vishrant(7.0424) Viman(8.00813) Airport(9.02079) Old_Pune(10.0479) 
+Fringe: Undri(6.10783) Ngr_Rd(7) Kalyani(7.02215) Yerwada(7.02215) Kharadi(7.03308) Vishrant(7.0424) Viman(8.00813) Airport(9.02079) Old_Pune(9.04788) Old_Pune(10.0479) Kothrud(10.1239) 
+Fringe: Ngr_Rd(7) Kalyani(7.02215) Yerwada(7.02215) Kharadi(7.03308) Vishrant(7.0424) Viman(8.00813) Airport(9.02079) Old_Pune(9.04788) Old_Pune(10.0479) Kothrud(10.1239) 
+Path found: Camp KP Mundhwa Wdsheri Ngr_Rd 
+A* algorithm took 430 microseconds.
+
+
+Large Graph example:
+Dijkstras on large graph
+Shortest path found using Dijkstra's algorithm: 100 29818 36159 27953 4416 33696 33300 89778 200 
+Time taken by dijkstra's algorithm: 178344 microseconds
+Cost: 25
+
+A* on large graph
+Shortest path found using A* algorithm: 100 18508 61647 32852 5369 1743 19024 48563 67055 98439 1247 74133 5154 51056 28243 89778 200 
+Time taken by dijkstra's algorithm: 49329223 microseconds
+Cost: 105
+
+Airport -> Kalyani -> Viman
+The actual cost to reach "Kalyani" from "Airport" is 3 units (distance), and the heuristic value for "Kalyani" to "Viman" is 2 units (time). Therefore, the estimated total cost is 3 (actual) + 2 (heuristic) = 5 units.
+
+In this example, the heuristic function overestimates the remaining cost, which violates the admissibility property. Therefore, in your case, the time heuristic is inadmissible.

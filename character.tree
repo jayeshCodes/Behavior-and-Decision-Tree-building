@@ -1,0 +1,10 @@
+?
+|    !(Monster Within 50 Units)
+|    |    [Wander]
+|    -> 
+|    |    (Monster Within 50 Units)
+|    |    !(!(Monster Within 10 Units))
+|    |    [Evade]
+|    ->
+|    |    (Monster Within 10 Units)
+|    |    [Zigzag]

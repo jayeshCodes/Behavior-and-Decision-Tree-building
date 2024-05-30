@@ -1,0 +1,14 @@
+CC = g++
+CFLAGS = -I/opt/homebrew/Cellar/sfml/2.6.1/include
+LDFLAGS = -L/opt/homebrew/Cellar/sfml/2.6.1/lib
+LIBS = -lsfml-graphics -lsfml-window -lsfml-system
+SOURCES = homework1a.cpp
+EXECUTABLE = hw1
+
+$(EXECUTABLE): $(SOURCES)
+	$(CC) $(CFLAGS) $(LDFLAGS) $(SOURCES) -o $(EXECUTABLE) $(LIBS)
+
+.PHONY: clean
+
+clean:
+	rm -f $(EXECUTABLE)

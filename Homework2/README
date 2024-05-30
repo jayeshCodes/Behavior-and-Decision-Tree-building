@@ -1,0 +1,109 @@
+# Homework1
+
+## Description
+
+VelocityMatching.cpp is an implementation for Part 1 of Homework 2
+ArriveAndAlign.cpp is an implementation for Part 2 of Homework 2
+Wander.cpp is an implementation for Part 3 of Homework 2
+Flocking1.cpp is the first implementation for Part 4 of Homework 2
+Flocking2.cpp is the second implementation for Part 4 of Homework 2
+report.pdf is the required write-up for Homework 2 
+
+## Prerequisites
+
+- SFML library installed, at the default installation location (if not installed, see Installation section)
+- g++ compiler version - 9.4.0 (or higher) (if not installed, see Installation section)
+- Ubuntu 20.04 (if you want to make use of the makefile)
+
+## Installation
+
+1. **SFML Library:**
+
+   Ensure that the SFML library is installed on your system. If not, you can install it using the following command:
+
+   ```bash
+   sudo apt-get update
+   sudo apt-get install libsfml-dev
+
+2. **g++:**
+
+    Ensure that you have g++ compiler version 9.4.0 or higher installed on your system. You can check your current version using:
+
+   ```bash
+   g++ --version
+
+   If the version is lower than 9.4.0, you can update it using the following command:
+
+   ```bash
+    sudo apt-get update
+    sudo apt-get install g++-9
+
+## Compile and Run the programs
+
+    1. To compile the programs and generate .o and executable files, run the provided makefile as follows:
+
+    ```bash
+    make
+
+    This should generate 10 files which are as follows:
+    part1.o
+    part2.o
+    part3.o
+    part4_1.o
+    part4_2.o
+    part1
+    part2
+    part3
+    part4_1
+    part4_2
+
+    2. To run Part 1 of Homework 2, run the following command:
+
+    ```bash
+    ./part1
+
+    3. To run Part 2 of Homework 2, run the following command:
+
+    ```bash
+    ./part2
+
+    To change the parameters for the arrive and align behavior, please go to SteeringBehavior.hpp, line 61, and change the maxSpeed to 200 and execute the makefile again. That should be enough to change the characteristic of the arrive and align behavior.
+
+    4. To run Part 3 of Homework 2, run the following command:
+
+    ```bash
+    ./part3
+
+    To change the behavior of this algorithm, please go to Wander.cpp, uncomment line numbers 64 and 94, and comment out line numbers 63 and 95, and execute the make file again.
+
+    5. To run Part 4 of Homework 2 which contains 60 boids and no breadcrumbs, run the following command:
+
+    ```bash
+    ./part4_1
+
+    To run Part 4 of Homework 2 which contains 30 boids and breadcrumbs, run the following command:
+
+    ```bash
+    ./part4_2
+
+    6. To delete the .o and executable files, run the following command:
+
+    ```bash
+    make clean
+
+## What to expect:
+    1. For part 1:
+    Working as expected and stated in the write-up.
+
+    2. For part 2:
+    Working as expected and stated in the write-up.
+
+    3. For part 3:
+    Working as expected and stated in the write-up.
+
+    4. For part 4:
+    You may notice that the parameters have been changed slightly in Flocking2.cpp when compared to the write-up. This has been done due to discrepancies between the development and grading environments. The code was developed in MacOS and when compiled on MacOS, it worked as expected and as stated in the report. But when this code was compiled on Ubuntu, the boids exibhited jittery motion. To resolve this issue, the parameters have been changed slightly.
+
+
+## Author:
+    Jayesh Bhagyesh Gajbhar (NCSU Unity ID - jgajbha)

@@ -1,0 +1,8 @@
+?
+|    !(Character Within 50 Units)
+|    |    [PathfindToCenter]
+|    -> 
+|    |    (Character Within 50 Units)
+|    |    [Pursue]
+|    -> 
+|    |    [Dance]

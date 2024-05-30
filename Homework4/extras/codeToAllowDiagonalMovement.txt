@@ -1,0 +1,32 @@
+std::vector<sf::Vector2i> generateSuccessors(int x, int y)
+{
+    std::vector<sf::Vector2i> successors;
+    
+    // Add neighboring cells (up, down, left, right)
+    if (isValid(x - 1, y))
+        successors.push_back(sf::Vector2i(x - 1, y));
+    if (isValid(x, y - 1))
+        successors.push_back(sf::Vector2i(x, y - 1));
+    if (isValid(x + 1, y))
+        successors.push_back(sf::Vector2i(x + 1, y));
+    if (isValid(x, y + 1))
+        successors.push_back(sf::Vector2i(x, y + 1));
+
+    // Add diagonal neighbors
+    if (isValid(x - 1, y - 1))
+        successors.push_back(sf::Vector2i(x - 1, y - 1));
+    if (isValid(x - 1, y + 1))
+        successors.push_back(sf::Vector2i(x - 1, y + 1));
+    if (isValid(x + 1, y - 1))
+        successors.push_back(sf::Vector2i(x + 1, y - 1));
+    if (isValid(x + 1, y + 1))
+        successors.push_back(sf::Vector2i(x + 1, y + 1));
+    
+    return successors;
+}
+
+double heuristic(sf::Vector2i a, sf::Vector2i b)
+{
+    // Euclidean distance heuristic
+    return std::sqrt((b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y));
+}

@@ -1,0 +1,78 @@
+# Homework3
+
+## Description
+
+The following folders contain the following files:
+Part1: Contains ActionType.hpp, boid.png, main.cpp, DecisionTree.hpp, Pathfinder.hpp, SteeringBehavior.hpp, SteeringData.hpp, Makefile.
+Part2: Contains ActionType.hpp, boid.png, monster.png, data.csv, main.cpp, BehaviorTreeNode.hpp, Pathfinder.hpp, SteeringBehavior.hpp, SteeringData.hpp, Makefile.
+Part3: Contains ActionType.hpp, boid.png, monster.png, data.csv, predicted_data.csv, main.cpp, BehaviorTreeNode.hpp, Pathfinder.hpp, SteeringBehavior.hpp, SteeringData.hpp, Makefile.
+learning: data.csv, predicted_data.csv, processed_data.csv, processed_predicted_data.csv, decision_tree.png, decision_tree.txt, learn.py, preprocess.py
+performance_evaluation: evaluation.py, processed_data.csv, processed_predicted_data.csv
+
+
+## Prerequisites
+
+- SFML library installed, at the default installation location (if not installed, see Installation section)
+- g++ compiler version - 9.4.0 (or higher) (if not installed, see Installation section)
+- Ubuntu 20.04 
+
+## Installation
+
+1. **SFML Library:**
+
+   Ensure that the SFML library is installed on your system. If not, you can install it using the following command:
+
+   ```bash
+   sudo apt-get update
+   sudo apt-get install libsfml-dev
+
+2. **g++:**
+
+    Ensure that you have g++ compiler version 9.4.0 or higher installed on your system. You can check your current version using:
+
+   ```bash
+   g++ --version
+
+   If the version is lower than 9.4.0, you can update it using the following command:
+
+   ```bash
+    sudo apt-get update
+    sudo apt-get install g++-9
+
+## Compile and Run the programs
+
+    1. To run part 1, please navigate to the Part1 folder and run the following command:
+
+    ```bash
+    make
+    ./main
+
+    2. To run part 2, please navigate to the Part2 folder and run the following command:
+
+    ```bash
+    make
+    ./main
+
+    3. To run part 3, please navigate to the Part3 folder and run the following command:
+
+    ```bash
+    make
+    ./main
+
+    4. To delete the .o and executable files, run the following command:
+
+    ```bash
+    make clean
+
+## What to expect:
+    1. For part 1:
+    Running as stated in the report.
+
+    2. For part 2:
+    Running as stated in the report.
+
+    3. For part 3:
+    Running as stated in the report.
+
+## Author:
+    Jayesh Bhagyesh Gajbhar (NCSU Unity ID - jgajbha)

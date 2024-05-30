@@ -1,0 +1,57 @@
+class GameAI
+{
+public:
+    void updateBehavior(SteeringData &character)
+    {
+        // Check if the character has reached the goal position or if the speed is too high
+        if (hasReachedGoal(character) || isSpeedTooHigh(character))
+        {
+            // Extract features and make decision using decision tree
+            std::vector<int> features = extractFeatures(character);
+            action = dtree.makeDecision(features, root);
+            std::cout << "Decision: " << action << std::endl;
+        }
+    }
+
+private:
+    bool hasReachedGoal(const SteeringData &character)
+    {
+        // Check if the character's position is close to the goal position
+        float dx = character.position.x - goal.position.x;
+        float dy = character.position.y - goal.position.y;
+        float distanceToGoal = std::sqrt(dx * dx + dy * dy);
+        return distanceToGoal < RoomSize / 2; // Adjust this threshold as needed
+    }
+
+    bool isSpeedTooHigh(const SteeringData &character)
+    {
+        // Check if the character's speed is too high
+        float absoluteVelocity = std::sqrt(character.velocity.x * character.velocity.x + character.velocity.y * character.velocity.y);
+        return absoluteVelocity > 50.f; // Adjust this threshold as needed
+    }
+
+    std::vector<int> extractFeatures(const SteeringData &character)
+    {
+        std::vector<int> features;
+
+        // Extract features based on character's position
+        if (character.position.x < 25.f || character.position.x > 675.f)
+            features.push_back(1);
+        else
+            features.push_back(0);
+
+        if (character.position.y < 25.f || character.position.y > 675.f)
+            features.push_back(1);
+        else
+            features.push_back(0);
+
+        // Extract features based on character's velocity
+        float absoluteVelocity = std::sqrt(character.velocity.x * character.velocity.x + character.velocity.y * character.velocity.y);
+        if (absoluteVelocity > 50.f)
+            features.push_back(1);
+        else
+            features.push_back(0);
+
+        return features;
+    }
+};

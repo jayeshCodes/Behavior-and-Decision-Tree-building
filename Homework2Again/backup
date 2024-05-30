@@ -1,0 +1,26 @@
+        // if (!orientationMatchComplete)
+        // {
+        //     // Check if orientation matching is complete
+        //     if (std::abs(character.orientation - goal.orientation) < ANGLE_THRESHOLD)
+        //     {
+        //         orientationMatchComplete = true;
+        //     }
+        // }
+        // else if (!positionMatchComplete)
+        // {
+        //     // Check if position matching is complete
+        //     float distanceToGoal = std::sqrt((goal.position.x - character.position.x) * (goal.position.x - character.position.x) +
+        //                                      (goal.position.y - character.position.y) * (goal.position.y - character.position.y));
+        //     if (distanceToGoal < POSITION_MATCH_THRESHOLD)
+        //     {
+        //         positionMatchComplete = true;
+        //     }
+        // }
+
+        // if (orientationMatchComplete && !positionMatchComplete)
+        // {
+        //     // Perform position matching
+        //     character.velocity += positionMatch.calculateSteering(character, goal) * dt.asSeconds();
+        //     character.position += character.velocity * dt.asSeconds();
+        //     sprite.sprite.setPosition(character.position);
+        // }

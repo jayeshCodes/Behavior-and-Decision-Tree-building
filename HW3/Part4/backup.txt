@@ -1,0 +1,104 @@
+bool isValid(int x, int y)
+{
+    return x >= 0 && x < GridSizeX && y < GridSizeY && y >= 0 && grid[x][y] != 1;
+}
+
+struct Cell
+{
+    int x, y;
+    double f, g, h; // f = g + h
+    Cell *parent;
+
+    Cell(int x, int y, double g, double h, Cell *parent) : x(x), y(y), g(g), h(h), parent(parent)
+    {
+        f = g + h;
+    }
+
+    // Definining comparison operator for priority queue (authored with chatgpt)
+    bool operator<(const Cell &other) const
+    {
+        return f > other.f;
+    }
+};
+
+
+std::vector<sf::Vector2i> findPath(sf::Vector2i start, sf::Vector2i end)
+{
+    std::vector<sf::Vector2i> path;
+    std::cout<<"Path created \n";
+
+    // Define offsets for neighboring cells
+    int dx[] = {1, 0, -1, 0};
+    int dy[] = {0, 1, 0, -1};
+    std::cout<<"offsets defined \n";
+
+    // Define a priority queue for open cells
+    std::priority_queue<Cell> openSet;
+    std::cout<<"PQ defined \n";
+
+    // Define a set for closed cells
+    std::unordered_set<int> closedSet;
+    std::cout<<"Set defined \n";
+
+    // Create start and end cells
+    Cell startCell(start.x, start.y, 0, 0, nullptr);
+    Cell endCell(end.x, end.y, 0, 0, nullptr);
+    std::cout<<"Cells created";
+
+    // Push start cell to open set
+    openSet.push(startCell);
+    std::cout<<"push start cell done \n";
+
+    while (!openSet.empty())
+    {
+        std::cout<<"Entered while\n";
+        // Get the cell with the lowest f value
+        Cell current = openSet.top();
+        openSet.pop();
+
+        // Check if the current cell is the goal
+        if (current.x == endCell.x && current.y == endCell.y)
+        {
+            std::cout<<"Path reconstruction\n";
+            // Reconstruct path
+            while (current.parent != nullptr)
+            {
+                path.push_back(sf::Vector2i(current.x, current.y));
+                current = *current.parent;
+            }
+            std::reverse(path.begin(), path.end());
+            return path;
+        }
+
+        // Add current cell to closed set
+        closedSet.insert(current.x * GridSizeY + current.y);
+        std::cout<<"Added to close set\n";
+
+        // Explore neighbors
+        for (int i = 0; i < 4; ++i)
+        {
+            std::cout<<"Exploring neighbors \n";
+            int nx = current.x + dx[i];
+            int ny = current.y + dy[i];
+
+            // Check if the neighbor is valid
+            if (isValid(nx, ny) && closedSet.find(nx * GridSizeY + ny) == closedSet.end())
+            {
+                std::cout<<"Entered final if \n";
+                // Calculate the g, h, and f values for the neighbor
+                double ng = current.g + 1.0; // Assuming each step has a cost of 1
+                double nh = std::abs(nx - end.x) + std::abs(ny - end.y); // Manhattan distance heuristic
+                double nf = ng + nh;
+
+                // Create the neighbor cell
+                Cell neighbor(nx, ny, ng, nh, &current);
+
+                // Push the neighbor cell to the open set
+                openSet.push(neighbor);
+            }
+        }
+    }
+
+    return path;
+}
+
